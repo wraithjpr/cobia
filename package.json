@@ -1,0 +1,47 @@
+{
+  "name": "cobia",
+  "version": "1.0.0",
+  "description": "Prototype Image Analyzer API app",
+  "main": "index.js",
+  "scripts": {
+    "app": "node ./src/server.js app",
+    "app-debug": "node --debug=3030 ./src/server.js app",
+    "docs": "jsdoc --configure .jsdoc.conf.json",
+    "eslint": "eslint ./src",
+    "lint": "semistandard \"./src/**/*.js\" && eslint ./src",
+    "jslint": "jslint ./src/**/*.js",
+    "semistandard": "semistandard \"./src/**/*.js\"",
+    "standard": "standard \"./src/**/*.js\"",
+    "start": "node ./src/server.js",
+    "test": "mocha --recursive ./test"
+  },
+  "author": "James Wraith",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "helmet": "^2.1.1",
+    "mongodb": "^2.2.9",
+    "ramda": "^0.22.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "eslint": "^3.4.0",
+    "eslint-config-google": "^0.6.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "jsdoc": "^3.4.0",
+    "jshint": "^2.9.3",
+    "jslint": "^0.10.3",
+    "markd": "^1.2.0",
+    "mocha": "^3.0.2",
+    "semistandard": "^8.0.0",
+    "standard": "^8.0.0"
+  },
+  "semistandard": {
+    "globals": [
+      "require"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "bitwise": false,
+    "browser": true,
+    "devel": true,
+    "es6": true,
+    "fudge": true,
+    "indent": 2,
+    "maxerr": 50,
+    "maxlen": 160,
+    "node": true,
+    "predef": ["module", "require"],
+    "single": true,
+    "this": true,
+    "white": true
+}
