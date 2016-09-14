@@ -17,6 +17,34 @@ const debug = require('debug')('cobia');          // eslint-disable-line no-unus
  * @description
  * xxx
  * @static
+ * @param {object} doc the new event document to create
+ * @returns {Promise} A promise that resolves to a result object.
+ */
+function createEvent (doc) {
+  return database.getConnectionPromise()
+    .then(function (db) {
+      return db.collection('events').insertOne(doc);
+    })
+    .then(function (opResult) {
+      return Promise.resolve({
+        created: opResult.insertedCount > 0,
+        insertedCount: opResult.insertedCount,
+        type: 'events',
+        _id: opResult.ops[0]._id // eslint-disable-line no-underscore-dangle
+      });
+    })
+    .catch(function (error) {
+      logError(error);
+
+      return Promise.reject(new Error('There\'s a problem creating the event in the database.'));
+    });
+}
+
+/**
+ * @summary xxx
+ * @description
+ * xxx
+ * @static
  * @param {type} name description
  * @returns {Promise} A promise that resolves to a result object.
  */
@@ -39,4 +67,5 @@ function getListItems () {
     });
 }
 
+module.exports.createEvent = createEvent;
 module.exports.getListItems = getListItems;
