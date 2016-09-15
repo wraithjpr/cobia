@@ -3,7 +3,7 @@
 /* eslint-disable no-magic-numbers */
 
 var config = {
-  port: 80,
+  port: 3000,
   protocol: 'http'
 };
 
