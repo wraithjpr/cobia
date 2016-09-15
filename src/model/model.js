@@ -30,7 +30,7 @@ function createEvent (doc) {
         created: opResult.insertedCount > 0,
         insertedCount: opResult.insertedCount,
         type: 'events',
-        _id: opResult.ops[0]._id // eslint-disable-line no-underscore-dangle
+        _id: opResult.ops[0]._id.toString() // eslint-disable-line no-underscore-dangle
       });
     })
     .catch(function (error) {

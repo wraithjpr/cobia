@@ -1,9 +1,9 @@
 'use strict';
 
-/* eslint-disable no-unused-expressions */
+/* eslint-disable no-invalid-this, no-magic-numbers, no-unused-expressions */
 
 const chai = require('chai');
-const expect = chai.expect;                                      // eslint-disable-line no-unused-vars
+const expect = chai.expect;
 const chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised);
@@ -21,6 +21,37 @@ describe('model.js tests', function () {
         expect(result).to.have.property('found', true);
         expect(result).to.have.property('type', 'list-items');
         expect(result).to.have.property('documents').that.is.an('array').that.is.not.empty;
+
+        return done();
+      }, done);
+    });
+  });
+  describe('createEvent', function () {
+    it('should return a promise resolving to a result object containing the uri of the newly created event.', function (done) {
+      const doc = {
+        captureType: 'monitor',
+        method: 'GET',
+        url: 'https://www.google.co.uk/_/chrome/newtab?espv=2&ie=UTF-8',
+        userEmail: 'james.p.r.wraith@gmail.com',
+        dateTime: new Date(),
+        resourceType: 'main_frame',
+        tabId: 264,
+        requestId: '5630',
+        origin: 'mocha test'
+      };
+
+      this.timeout(500);
+
+      const promise = model.createEvent(doc);
+
+      expect(promise).to.be.a('promise').that.is.fulfilled;
+
+      promise.then(function (result) {
+        expect(result).to.have.property('created', true);
+        expect(result).to.have.property('type', 'events');
+        expect(result).to.have.property('insertedCount', 1);
+        expect(result).to.have.property('_id').that.is.a('string');
+        expect(result._id).to.not.be.empty;  // eslint-disable-line no-underscore-dangle
 
         return done();
       }, done);
