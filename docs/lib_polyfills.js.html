@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: routes/router.js</title>
+    <title>JSDoc: Source: lib/polyfills.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: routes/router.js</h1>
+    <h1 class="page-title">Source: lib/polyfills.js</h1>
 
     
 
@@ -28,45 +28,60 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-/** This module exports the Express router for the Cobia application.
- * See {@link module:routes/api}
- * @module routes/router
- * @requires module:express
- * @requires module:routes/api
- */
-
-var debug = require('debug')('cobia');
-var express = require('express');
+ /**
+  * Cobia polyfills module.
+  * This module implements the RST API of the Cobia web application.
+  * @module lib/polyfills
+  */
 
 /**
- * @summary Cobia API
+ * @summary Array.prototype.includes()
  * @description
- * Implementation of the REST API.
- * @private
- */
-var api = require('./api.js');
-
-/**
- * @summary The Express Router
- * @description
- * The instance of the Express router is assigned to module.exports.
+ * Polyfill for Array.prototype.includes() that is not implemented in Node.js
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes}
  * @static
+ * @returns {void}
  */
-var router = express.Router();              // eslint-disable-line new-cap
+function arrayIncludes () {
+/* eslint-disable */
+  if (!Array.prototype.includes) {
+    Array.prototype.includes = function(searchElement /*, fromIndex*/) {
+      'use strict';
+      if (this == null) {
+        throw new TypeError('Array.prototype.includes called on null or undefined');
+      }
 
-router.use(function (req, res, next) {
-  debug('Cobia REST API');
-  next();
-});
+      var O = Object(this);
+      var len = parseInt(O.length, 10) || 0;
+      if (len === 0) {
+        return false;
+      }
+      var n = parseInt(arguments[1], 10) || 0;
+      var k;
+      if (n >= 0) {
+        k = n;
+      } else {
+        k = len + n;
+        if (k &lt; 0) {k = 0;}
+      }
+      var currentElement;
+      while (k &lt; len) {
+        currentElement = O[k];
+        if (searchElement === currentElement ||
+           (searchElement !== searchElement &amp;&amp; currentElement !== currentElement)) { // NaN !== NaN
+          return true;
+        }
+        k++;
+      }
+      return false;
+    };
+  }
+  /* eslint-enable */
 
-// Add routes below...
-router.get('/hello/', api.getHello);
-router.get('/list-items/', api.getListItems);
-router.get('/events/', api.checkQuerySafety, api.buildDbQuery, api.buildSortCriteria, api.handlePaging, api.setupProjection, api.getEvents, api.respond);
-router.post('/events/', api.validateEvent, api.buildNewEvent, api.createEvent);
+  return;
+}
 
-// Export the Express router
-module.exports = router;
+module.exports.arrayIncludes = arrayIncludes;
 </code></pre>
         </article>
     </section>

@@ -31,7 +31,7 @@ describe('model.js tests', function () {
       const doc = {
         captureType: 'monitor',
         method: 'GET',
-        url: 'https://www.google.co.uk/_/chrome/newtab?espv=2&ie=UTF-8',
+        url: 'https://mochajs.org/',
         userEmail: 'james.p.r.wraith@gmail.com',
         dateTime: new Date(),
         resourceType: 'main_frame',
