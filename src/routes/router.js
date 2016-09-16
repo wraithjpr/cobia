@@ -34,6 +34,7 @@ router.use(function (req, res, next) {
 // Add routes below...
 router.get('/hello/', api.getHello);
 router.get('/list-items/', api.getListItems);
+router.get('/events/', api.checkQuerySafety, api.buildDbQuery, api.buildSortCriteria, api.handlePaging, api.setupProjection, api.getEvents, api.respond);
 router.post('/events/', api.validateEvent, api.buildNewEvent, api.createEvent);
 
 // Export the Express router

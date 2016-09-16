@@ -148,13 +148,13 @@
     <h4 class="name" id=".createEvent"><span class="type-signature">(static) </span>createEvent<span class="signature">(doc)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
-    <p class="summary"><p>xxx</p></p>
+    <p class="summary"><p>Create a new document in the Events collection</p></p>
     
 
 
 
 <div class="description">
-    <p>xxx</p>
+    <p>Inserts one event and returns the _id of the newly created document in a result object.</p>
 </div>
 
 
@@ -247,7 +247,231 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_model.js.html">model/model.js</a>, <a href="model_model.js.html#line23">line 23</a>
+        <a href="model_model.js.html">model/model.js</a>, <a href="model_model.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A promise that resolves to a result object.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getEvents"><span class="type-signature">(static) </span>getEvents<span class="signature">(projection, limit, sortCriteria, query)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+    <p class="summary"><p>Gets events from the Events collection.</p></p>
+    
+
+
+
+<div class="description">
+    <p>Returns the events in the results object.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>projection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The field projection object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The limit for the cursor query.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sortCriteria</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The key or keys set for the sort.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The cursor query object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_model.js.html">model/model.js</a>, <a href="model_model.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -402,7 +626,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_model.js.html">model/model.js</a>, <a href="model_model.js.html#line51">line 51</a>
+        <a href="model_model.js.html">model/model.js</a>, <a href="model_model.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -466,13 +690,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-database.html">database</a></li><li><a href="module-database-config.html">database-config</a></li><li><a href="module-lib_error-handling.html">lib/error-handling</a></li><li><a href="module-model_model.html">model/model</a></li><li><a href="module-routes_api.html">routes/api</a></li><li><a href="module-routes_router.html">routes/router</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-database.html">database</a></li><li><a href="module-database-config.html">database-config</a></li><li><a href="module-lib_error-handling.html">lib/error-handling</a></li><li><a href="module-lib_polyfills.html">lib/polyfills</a></li><li><a href="module-model_model.html">model/model</a></li><li><a href="module-routes_api.html">routes/api</a></li><li><a href="module-routes_router.html">routes/router</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Thu Sep 15 2016 00:43:37 GMT+0100 (GMT Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Fri Sep 16 2016 19:20:32 GMT+0100 (GMT Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
